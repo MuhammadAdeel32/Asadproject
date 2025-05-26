@@ -28,7 +28,7 @@
     <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
     <meta name="author" content="ThemePixels">
 
-    <title>Installment Management System | Web Technologies</title>
+    <title> New Project System | Web Technologies</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Bootstrap Icons -->
@@ -50,7 +50,7 @@
 
   <body>
    
- <div class="br-logo"><a href="#"><span>[</span>IMSW<span>]</span></a></div>
+ <div class="br-logo"><a href="#"><span>[</span>AKNUR TEXTILE<span>]</span></a></div>
 <div class="br-sideleft overflow-y-auto">
     <label class="sidebar-label pd-x-15 mg-t-10">Navigation</label>
     <div class="br-sideleft-menu">
@@ -61,8 +61,87 @@
             </div>
         </a>
         
-       <!-- side-bar-menus -->
+
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="fas fa-box-open"></i>
+                <span class="menu-item-label">Products</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div>
+        </a>
+        <ul class="br-menu-sub nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link">New Product</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Stock Management</a></li>
+           
+        </ul>
+
        
+
+        <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="fas fa-cart-shopping"></i>
+                <span class="menu-item-label">Sales</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div>
+        </a>
+        <ul class="br-menu-sub nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link">New Sales</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">History</a></li>
+            </ul>
+
+
+             <a href="#" class="text-white">
+            <div class="br-menu-item">
+               <i class="fas fa-chart-pie"></i>
+                <span class="menu-item-label">Analytics</span>
+            </div>
+        </a>
+
+         <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="fas fa-users"></i>
+                <span class="menu-item-label">Customers</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div>
+        </a>
+        <ul class="br-menu-sub nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link">Create Customer</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">History</a></li>
+            
+        </ul>
+       
+
+         <a href="#" class="br-menu-link">
+            <div class="br-menu-item">
+                <i class="fas fa-users"></i>
+                <span class="menu-item-label">Users</span>
+                <i class="menu-item-arrow fa fa-angle-down"></i>
+            </div>
+        </a>
+        <ul class="br-menu-sub nav flex-column">
+            <li class="nav-item"><a href="#" class="nav-link">Create User</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">All Users</a></li>
+            
+        </ul>
+       
+             
+
+         <a href="#" class="text-white">
+            <div class="br-menu-item">
+                <i class="fas fa-cogs"></i>
+                <span class="menu-item-label">Settings</span>
+            </div>
+        </a>
+
+
+       
+    
+        <a href="#" class="text-white">
+            <div class="br-menu-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span class="menu-item-label">Log Out</span>
+            </div>
+        </a>
     </div>
 </div>
 
