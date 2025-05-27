@@ -70,8 +70,8 @@
             </div>
         </a>
         <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="#" class="nav-link">New Product</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Stock Management</a></li>
+            <li class="nav-item"><a href="{{ route('products.new')}}" class="nav-link">New Product</a></li>
+            <li class="nav-item"><a href="{{ route('products.stock-management')}}" class="nav-link">Stock Management</a></li>
            
         </ul>
 
@@ -85,12 +85,12 @@
             </div>
         </a>
         <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="#" class="nav-link">New Sales</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">History</a></li>
+            <li class="nav-item"><a href="{{ route('sales.new')}}" class="nav-link">New Sales</a></li>
+            <li class="nav-item"><a href="{{ route('sales.history')}}" class="nav-link">History</a></li>
             </ul>
 
 
-             <a href="#" class="text-white">
+             <a href="{{ route('analytics')}}" class="text-white">
             <div class="br-menu-item">
                <i class="fas fa-chart-pie"></i>
                 <span class="menu-item-label">Analytics</span>
@@ -105,8 +105,8 @@
             </div>
         </a>
         <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="#" class="nav-link">Create Customer</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">History</a></li>
+            <li class="nav-item"><a href="{{ route('customers.create')}}" class="nav-link">Create Customer</a></li>
+            <li class="nav-item"><a href="{{ route('customers.history')}}" class="nav-link">History</a></li>
             
         </ul>
        
@@ -119,14 +119,14 @@
             </div>
         </a>
         <ul class="br-menu-sub nav flex-column">
-            <li class="nav-item"><a href="#" class="nav-link">Create User</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">All Users</a></li>
+            <li class="nav-item"><a href="{{ route('users.create')}}" class="nav-link">Create User</a></li>
+            <li class="nav-item"><a href="{{ route('users.all')}}" class="nav-link">All Users</a></li>
             
         </ul>
        
              
 
-         <a href="#" class="text-white">
+         <a href="{{ route('setting')}}" class="text-white">
             <div class="br-menu-item">
                 <i class="fas fa-cogs"></i>
                 <span class="menu-item-label">Settings</span>
@@ -136,7 +136,7 @@
 
        
     
-        <a href="#" class="text-white">
+        <a href="{{ route('logout')}}" class="text-white">
             <div class="br-menu-item">
                 <i class="fas fa-sign-out-alt"></i>
                 <span class="menu-item-label">Log Out</span>

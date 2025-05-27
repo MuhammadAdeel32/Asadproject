@@ -4,6 +4,43 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Dashboard;
 use App\Livewire\Login;
 
-
-Route::get('/asad',Dashboard::class);
 Route::get('/',Login::class);
+
+Route::middleware(['auth'])->prefix('users')->group(function () {
+
+Route::get('/asad',Dashboard::class)->name('dashboard');
+// Products Routes
+Route::prefix('products')->name('products.')->group(function () {
+    Route::get('new', \App\Livewire\Products\NewProduct::class)->name('new');
+    Route::get('stock-management', \App\Livewire\Products\StockManagement::class)->name('stock-management');
+});
+
+// Customers Routes
+Route::prefix('customers')->name('customers.')->group(function () {
+    Route::get('create', \App\Livewire\Customers\CreateCustomer::class)->name('create');
+     Route::get('edit-customer/{id}', \App\Livewire\Customers\Editcustomer::class)->name('edit.customer');
+    Route::get('history', \App\Livewire\Customers\History::class)->name('history');
+});
+
+// Sales Routes
+Route::prefix('sales')->name('sales.')->group(function () {
+    Route::get('new', \App\Livewire\Sales\NewSale::class)->name('new');
+    Route::get('history', \App\Livewire\Sales\History::class)->name('history');
+});
+
+// Users Routes
+Route::prefix('users')->name('users.')->group(function () {
+    Route::get('create', \App\Livewire\Users\CreateUser::class)->name('create');
+    Route::get('all', \App\Livewire\Users\AllUsers::class)->name('all');
+});
+
+// Analytics
+Route::get('/analytics', \App\Livewire\Analytics::class)->name('analytics');
+
+// Settings
+Route::get('/setting', \App\Livewire\Setting::class)->name('setting');
+
+// Logout
+Route::get('/logout', \App\Livewire\Logout::class)->name('logout');
+
+});
