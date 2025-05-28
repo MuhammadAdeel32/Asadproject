@@ -70,6 +70,9 @@
             </div>
         </a>
         <ul class="br-menu-sub nav flex-column">
+          
+            <li class="nav-item"><a href="{{ route('products.brand')}}" class="nav-link">Brand</a></li>
+            <li class="nav-item"><a href="{{ route('products.category')}}" class="nav-link">Category</a></li>
             <li class="nav-item"><a href="{{ route('products.new')}}" class="nav-link">New Product</a></li>
             <li class="nav-item"><a href="{{ route('products.stock-management')}}" class="nav-link">Stock Management</a></li>
            

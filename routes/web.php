@@ -4,15 +4,18 @@ use Illuminate\Support\Facades\Route;
 use App\Livewire\Dashboard;
 use App\Livewire\Login;
 
-Route::get('/',Login::class);
+Route::get('/',Login::class)->name('login');
 
-Route::middleware(['auth'])->prefix('users')->group(function () {
+// Route::middleware(['auth'])->prefix('users')->group(function () {
 
-Route::get('/asad',Dashboard::class)->name('dashboard');
+Route::get('/dashboard',Dashboard::class)->name('dashboard');
 // Products Routes
 Route::prefix('products')->name('products.')->group(function () {
+
+     Route::get('new-brand', \App\Livewire\Products\Brands::class)->name('brand');
+    Route::get('new-category', \App\Livewire\Products\Catagories::class)->name('category');
     Route::get('new', \App\Livewire\Products\NewProduct::class)->name('new');
-    Route::get('stock-management', \App\Livewire\Products\StockManagement::class)->name('stock-management');
+    Route::get('stock-management',\App\Livewire\Products\StockManagement::class)->name('stock-management');
 });
 
 // Customers Routes
@@ -43,4 +46,4 @@ Route::get('/setting', \App\Livewire\Setting::class)->name('setting');
 // Logout
 Route::get('/logout', \App\Livewire\Logout::class)->name('logout');
 
-});
+// });
