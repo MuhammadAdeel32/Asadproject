@@ -11,7 +11,7 @@
                             <h5 class="fw-bold pt-4">0</h5>
                         </div>
                         <div class="text-success fs-2">
-                            <i class="fas fa-sack-dollar"></i>
+                            <i class="fas fa-sack-dollar fa-2x"></i>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                             <h5 class="fw-bold pt-4 ">0</h5>
                         </div>
                         <div class="text-white fs-2">
-                         <i class="fas fa-users"></i>
+                         <i class="fas fa-users fa-2x"></i>
 
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                             <h5 class="fw-bold pt-4">0</h5>
                         </div>
                         <div class="text-white fs-2">
-                            <i class="fas fa-users"></i>
+                            <i class="fas fa-users fa-2x"></i>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                             <h5 class="fw-bold pt-4">0</h5>
                         </div>
                         <div class="text-white fs-2">
-                            <i class="fas fa-calendar-day"></i>
+                            <i class="fas fa-calendar-day fa-2x"></i>
                         </div>
                     </div>
                 </div>

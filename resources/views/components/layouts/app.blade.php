@@ -30,9 +30,12 @@
 
     <title> New Project System | Web Technologies</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/bootstrap-5.3.6-dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    
+    <!-- SweetAlert2 JS -->
+
 <!-- Bootstrap Icons -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+     <link href="{{ asset('assets/bootstrap-icons-1.13.1/font/bootstrap-icons.css') }}" rel="stylesheet">
      <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -42,7 +45,8 @@
     <link href="{{ asset('lib/jquery-switchbutton/jquery.switchButton.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/rickshaw/rickshaw.min.css')}}" rel="stylesheet">
     <link href="{{ asset('lib/chartist/chartist.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{{ asset('assets/fontawesome-free-6.7.2-web/css/all.min.css') }}">
+
       @livewireStyles
     <!-- Bracket CSS -->
     <link rel="stylesheet" href="{{ asset('css/bracket.css')}}">
@@ -266,7 +270,6 @@
 
     <script src="{{ asset('lib/jquery/jquery.js')}}"></script>
     <script src="{{ asset('lib/popper.js/popper.js')}}"></script>
-    <script src="{{ asset('lib/bootstrap/bootstrap.js')}}"></script>
     <script src="{{ asset('lib/perfect-scrollbar/js/perfect-scrollbar.jquery.js')}}"></script>
     <script src="{{ asset('lib/moment/moment.js')}}"></script>
     <script src="{{ asset('lib/jquery-ui/jquery-ui.js')}}"></script>
@@ -276,6 +279,7 @@
     <script src="{{ asset('lib/jquery.sparkline.bower/jquery.sparkline.min.js')}}"></script>
     <script src="{{ asset('lib/d3/d3.js')}}"></script>
     <script src="{{ asset('lib/rickshaw/rickshaw.min.js')}}"></script>
+<script src="{{ asset('assets/bootstrap-5.3.6-dist/js/bootstrap.bundle.min.js') }}"></script>
 
 
     <script src="{{ asset('js/bracket.js')}}"></script>

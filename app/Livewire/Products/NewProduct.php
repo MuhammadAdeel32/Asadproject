@@ -32,10 +32,18 @@ class NewProduct extends Component
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-     $logopath = null;
-      if ($this->thumbnail) {
-    $logopath = $this->thumbnail->store('thumbnail', 'public');
-     }
+        
+    $imageName = 'product_' . time() . '.jpg';
+    $finalImagePath = null;
+
+    if ($this->thumbnail) {
+        $finalImagePath = $this->thumbnail->storeAs('thumbnail', $imageName, 'public');
+    }
+    else {
+        $this->addError('photo', 'Image could not be saved.');
+        return;
+    }
+
         Product::create([
             'category_id' => $this->category_id,
             'brand_id' => $this->brand_id,
@@ -43,7 +51,7 @@ class NewProduct extends Component
             'description' => $this->description,
             'price' => $this->price,
             'quantity' => $this->quantity,
-            'thumbnail' => $logopath,
+            'thumbnail' => $finalImagePath,
         ]);
 
         session()->flash('success', 'Product added successfully!');
@@ -51,6 +59,7 @@ class NewProduct extends Component
         $this->reset(['category_id', 'brand_id', 'title', 'description', 'price', 'quantity', 'thumbnail']);
     }
 
+    
     public function render()
     {
         $categories = Category::all();

@@ -32,12 +32,11 @@ class CreateUser extends Component
         ]);
 
         // Set cookie for 1 day
-       return redirect()->route('users.create');
-
-        $this->successMessage = 'Registered successfully! Redirecting...';
-
+       session()->flash('message','User Created Successfully!');
         // Reset form fields
         $this->reset(['name', 'email', 'password', 'password_confirmation']);
+        return redirect()->route('users.create');
+
 
         // Dispatch event to trigger JS redirect
     }

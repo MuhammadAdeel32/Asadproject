@@ -3,11 +3,24 @@
 namespace App\Livewire\Users;
 
 use Livewire\Component;
+use  App\Models\User;
 
 class AllUsers extends Component
 {
+
+    public function deleteuser($id)
+    {
+        $user=User::find($id);
+        if($user)
+        {
+            $user->delete();
+        }
+    }
+    
     public function render()
     {
-        return view('livewire.users.all-users');
+
+        $users=User::all();
+        return view('livewire.users.all-users',compact('users'));
     }
 }

@@ -29,6 +29,15 @@ class Brands extends Component
         return redirect()->route('products.brand');
     }
 
+    public function deletebrand($id)
+    {
+        $brand=Brand::find($id);
+
+        if($brand){
+        $brand->delete();
+        }
+    }
+
     public function render()
     {
         $brands=Brand::all();

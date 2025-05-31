@@ -1,10 +1,9 @@
 
 <div>
-
 <div class="container mt-4">
     <div class="row">
         <div class="col-lg-12">
-            <div class="card shadow-lg">
+            <div class="card shadow-lg mb-3">
                 <div class="card-body rounded-1">
 
                         <div class="card bg-success text-white">

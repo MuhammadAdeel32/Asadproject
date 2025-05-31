@@ -32,6 +32,14 @@ class Catagories extends Component
     }
  
       
+     public function deletebrand($id)
+    {
+        $category=Category::find($id);
+
+        if($category){
+        $category->delete();
+        }
+    }
 
 
     public function render()
