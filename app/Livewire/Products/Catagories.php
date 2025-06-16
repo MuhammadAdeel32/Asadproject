@@ -32,12 +32,17 @@ class Catagories extends Component
     }
  
       
-     public function deletebrand($id)
+     public function deletecategory($id)
     {
         $category=Category::find($id);
 
         if($category){
-        $category->delete();
+            if($category->products->count() == 0){
+                $category->delete();
+                session()->flash('warning','Category Deleted Succesfully');
+            } else {
+                session()->flash('warning','Category has products, please delete them first');
+            }
         }
     }
 

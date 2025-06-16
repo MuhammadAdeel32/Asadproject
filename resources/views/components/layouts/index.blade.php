@@ -27,7 +27,7 @@
     <meta name="description" content="Premium Quality and Responsive UI for Dashboard.">
     <meta name="author" content="ThemePixels">
 
-    <title>Installment Management System | Web Technologies</title>
+    <title>Crony | Web Technologies</title>
 
     <!-- Local Bootstrap CSS -->
     <link href="{{ asset('assets/bootstrap-5.3.6-dist/css/bootstrap.min.css') }}" rel="stylesheet">

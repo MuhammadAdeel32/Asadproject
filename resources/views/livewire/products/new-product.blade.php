@@ -1,16 +1,16 @@
 
 <div>
 <div class="container mt-4">
+    @include('includes.flash')
     <div class="row">
         <div class="col-lg-12">
             <div class="card shadow-lg mb-3">
+                <div class="card bg-success text-white">
+                    <div class="card-header border-0">
+                        <i class="fa fa-plus-circle"></i> Add New Product
+                    </div>
+                </div>
                 <div class="card-body rounded-1">
-
-                        <div class="card bg-success text-white">
-                            <div class="card-header border-0">
-                                <i class="fa fa-plus-circle"></i> Add New Product
-                            </div>
-                        </div>
 
                      <form wire:submit.prevent="Add">
                         <div class="row">
@@ -80,14 +80,14 @@
                          <div class="mb-2 mt-4">
                             <label for="thumbnail" class="form-label"> <i class="fas fa-image"></i> Thumbnail (Optional)</label>
                             <input wire:model="thumbnail" type="file" id="thumbnail" class="form-control">
-                            @error('title') <div class="text-danger small">{{ $message }}</div> @enderror
+                           
                         </div>
 
 
                         
 
                         <div class="mt-3 d-flex justify-content-end">
-                            <button type="submit" class="btn btn-success rounded-2 me-2">Add Product</button>
+                            <button type="submit" class="btn btn-success rounded-2 me-2"> <i class="fa fa-save"></i> Add Product <i class="fa fa-spinner fa-spin" wire:loading></i></button>
                         </div>
                     </form>
                 </div>

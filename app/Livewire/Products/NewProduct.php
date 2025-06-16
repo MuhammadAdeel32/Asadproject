@@ -20,7 +20,7 @@ class NewProduct extends Component
     public $quantity;
     public $thumbnail;
 
-    public function Add()
+   public function Add()
     {
         $this->validate([
             'category_id' => 'required|exists:categories,id',
@@ -32,32 +32,29 @@ class NewProduct extends Component
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        
-    $imageName = 'product_' . time() . '.jpg';
-    $finalImagePath = null;
+        $finalImagePath = null;
 
-    if ($this->thumbnail) {
-        $finalImagePath = $this->thumbnail->storeAs('thumbnail', $imageName, 'public');
-    }
-    else {
-        $this->addError('photo', 'Image could not be saved.');
-        return;
-    }
+        if ($this->thumbnail) {
+            $imageName = 'product_' . time() . '.' . $this->thumbnail->getClientOriginalExtension();
+            $finalImagePath = $this->thumbnail->storeAs('thumbnail', $imageName, 'public');
+        }
 
-        Product::create([
-            'category_id' => $this->category_id,
-            'brand_id' => $this->brand_id,
-            'title' => $this->title,
-            'description' => $this->description,
-            'price' => $this->price,
-            'quantity' => $this->quantity,
-            'thumbnail' => $finalImagePath,
-        ]);
+        // Now use Object based Query
+        $product = new Product();
+        $product->category_id = $this->category_id;
+        $product->brand_id = $this->brand_id;
+        $product->title = $this->title;
+        $product->description = $this->description;
+        $product->price = $this->price;
+        $product->quantity = $this->quantity;
+        $product->thumbnail = $finalImagePath;
+        $product->save();
 
         session()->flash('success', 'Product added successfully!');
 
         $this->reset(['category_id', 'brand_id', 'title', 'description', 'price', 'quantity', 'thumbnail']);
     }
+
 
     
     public function render()

@@ -34,7 +34,12 @@ class Brands extends Component
         $brand=Brand::find($id);
 
         if($brand){
-        $brand->delete();
+            if($brand->products->count() == 0){
+                 $brand->delete();
+                 session()->flash('warning','Brand Deleted Succesfully');
+            } else {
+                session()->flash('warning','Brand has products, Please delete them first');
+            }
         }
     }
 

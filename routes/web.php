@@ -43,8 +43,10 @@ Route::get('/analytics', \App\Livewire\Analytics::class)->name('analytics');
 
 // Settings
 Route::get('/setting', \App\Livewire\Setting::class)->name('setting');
-
-// Logout
-Route::get('/logout', \App\Livewire\Logout::class)->name('logout');
 });
+
+Route::get('/logout',function(){
+    Auth::logout();
+    return redirect(route('login'));
+})->name('logout');
  
