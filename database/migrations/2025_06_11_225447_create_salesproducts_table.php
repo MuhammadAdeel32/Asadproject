@@ -16,7 +16,8 @@ return new class extends Migration
             $table->integer('sale_id')->nullable();
             $table->integer('product_id')->nullable();
             $table->integer('quantity')->nullable();
-            $table->integer('total')->nullable();
+            $table->integer('amount')->nullable();
+             $table->integer('total')->nullable();
             $table->timestamps();
         });
     }

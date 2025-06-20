@@ -14,6 +14,8 @@ class NewSale extends Component
     public $products, $customers;
     public $product_id, $customer_id, $quantity;
     public $cart = [];
+    public $price;
+    public $amount;
 
     public function mount()
     {
@@ -21,17 +23,53 @@ class NewSale extends Component
         $this->customers = Customer::all();
     }
 
+    public function updatedProductId($value)
+    {
+        $product = Product::find($value);
+
+        if ($product) {
+            $this->price = $product->price;
+            // If quantity is already set, update amount immediately
+            if ($this->quantity) {
+                $this->amount = $product->price * $this->quantity;
+            }
+        } else {
+            $this->price = 0;
+            $this->amount = 0;
+        }
+    }
+
+    public function updatedQuantity($value)
+    {
+        if ($this->product_id && $value) {
+            $product = Product::find($this->product_id);
+            
+            if ($product) {
+                // Live stock check
+                if ($product->quantity < $value) {
+                    $this->addError('quantity', 'Not enough stock available');
+                    return;
+                }
+                
+                $this->amount = $product->price * $value;
+            }
+        } else {
+            $this->amount = 0;
+        }
+    }
+
     public function addSale()
     {
         $this->validate([
             'product_id' => 'required',
-            'customer_id' => 'required',
+            'customer_id' => 'nullable|string',
             'quantity' => 'required|integer|min:1',
+            'amount' => 'numeric|min:0.01',            
         ]);
 
         $product = Product::find($this->product_id);
 
-        // Check stock
+        // Final stock check
         if ($product->quantity < $this->quantity) {
             $this->addError('quantity', 'Not enough stock available');
             return;
@@ -46,8 +84,7 @@ class NewSale extends Component
         ];
 
         // Reset fields
-        $this->product_id = null;
-        $this->quantity = null;
+        $this->reset(['product_id', 'quantity', 'amount']);
     }
 
     public function removeItem($index)
@@ -69,7 +106,8 @@ class NewSale extends Component
         }
 
         DB::beginTransaction();
-        try {
+
+        try { 
             $sale = Sale::create([
                 'customer_id' => $this->customer_id,
                 'total' => $this->getTotal(),
@@ -84,6 +122,7 @@ class NewSale extends Component
                     'product_id' => $item['product_id'],
                     'quantity' => $item['quantity'],
                     'total' => $item['subtotal'],
+                    'amount' => $item['subtotal'], // Using subtotal as amount
                 ]);
 
                 // Deduct stock
@@ -93,13 +132,12 @@ class NewSale extends Component
             }
 
             DB::commit();
-            $this->cart = [];
-            $this->customer_id = null;
 
+            $this->reset(['cart', 'customer_id', 'amount']);
             session()->flash('success', 'Sale Completed Successfully');
         } catch (\Exception $e) {
             DB::rollBack();
-            session()->flash('error', 'Something went wrong');
+            session()->flash('error', 'Something went wrong: ' . $e->getMessage());
         }
     }
 

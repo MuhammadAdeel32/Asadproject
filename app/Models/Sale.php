@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
-    //
+    protected $fillable=['customer_id','total','discount','final','status'];
+
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+
+   
 }
+

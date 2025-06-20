@@ -8,6 +8,7 @@ use  App\Models\User;
 class AllUsers extends Component
 {
 
+    public $totalusers;
     public function deleteuser($id)
     {
         $user=User::find($id);
@@ -16,6 +17,7 @@ class AllUsers extends Component
             $user->delete();
         }
     }
+
     
     public function render()
     {

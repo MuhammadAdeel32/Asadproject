@@ -19,6 +19,7 @@ class NewProduct extends Component
     public $price;
     public $quantity;
     public $thumbnail;
+    public $totalproducts;
 
    public function Add()
     {
@@ -31,6 +32,9 @@ class NewProduct extends Component
             'quantity' => 'required|integer|min:0',
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
+
+        
+
 
         $finalImagePath = null;
 
@@ -56,12 +60,13 @@ class NewProduct extends Component
     }
 
 
-    
+   
+
     public function render()
     {
         $categories = Category::all();
         $brands = Brand::all();
 
-        return view('livewire.products.new-product', compact('categories', 'brands'));
+        return view('livewire.products.new-product', compact('categories', 'brands',));
     }
 }

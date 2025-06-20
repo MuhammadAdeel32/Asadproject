@@ -11,7 +11,9 @@ class CreateCustomer extends Component
     public $email;
     public $address;
     public $phone;
+    public $totalcustomers;
 
+    
     public function customersave()
     {
         $this->validate([

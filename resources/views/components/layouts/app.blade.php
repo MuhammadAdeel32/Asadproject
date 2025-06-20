@@ -58,7 +58,7 @@
 <div class="br-sideleft overflow-y-auto">
     <label class="sidebar-label pd-x-15 mg-t-10">Navigation</label>
     <div class="br-sideleft-menu">
-        <a href="#" class="br-menu-link">
+        <a href="{{ route('dashboard')}}" class="br-menu-link">
             <div class="br-menu-item">
                 <i class="menu-item-icon icon ion-ios-home-outline tx-22"></i>
                 <span class="menu-item-label">Dashboard</span>
@@ -167,7 +167,6 @@
         
           <div class="dropdown">
             <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-              <span class="logged-name hidden-md-down">{{ ucfirst(Auth::user()->name) }}</span>
               <img src="http://via.placeholder.com/64x64" class="wd-32 rounded-circle" alt="">
               <span class="square-10 bg-success"></span>
             </a>

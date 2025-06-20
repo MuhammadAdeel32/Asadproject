@@ -8,7 +8,7 @@
                     <div class="card-body d-flex align-items-center justify-content-between">
                         <div>
                             <h5 class="fw-semibold fs-6">Total Products</h5>
-                            <h5 class="fw-bold pt-4">0</h5>
+                            <h5 class="fw-bold pt-4">{{ $totalproducts }}</h5>
                         </div>
                         <div class="text-success fs-2">
                             <i class="fas fa-sack-dollar fa-2x"></i>
@@ -23,7 +23,7 @@
                     <div class="card-body d-flex align-items-center justify-content-between">
                         <div>
                             <h5 class="fw-semibold fs-6">Users</h5>
-                            <h5 class="fw-bold pt-4 ">0</h5>
+                            <h5 class="fw-bold pt-4 ">{{ $totalusers }}</h5>
                         </div>
                         <div class="text-white fs-2">
                          <i class="fas fa-users fa-2x"></i>
@@ -39,7 +39,7 @@
                     <div class="card-body d-flex align-items-center justify-content-between">
                         <div>
                             <h5 class="fw-semibold fs-6">Total Customers</h5>
-                            <h5 class="fw-bold pt-4">0</h5>
+                            <h5 class="fw-bold pt-1"> {{ $totalcustomers }}</h5>
                         </div>
                         <div class="text-white fs-2">
                             <i class="fas fa-users fa-2x"></i>
@@ -54,7 +54,7 @@
                     <div class="card-body d-flex align-items-center justify-content-between">
                         <div>
                             <h5 class="fw-semibold fs-6">Total Sales</h5>
-                            <h5 class="fw-bold pt-4">0</h5>
+                            <h5 class="fw-bold pt-4">{{ $totalsales }}</h5>
                         </div>
                         <div class="text-white fs-2">
                             <i class="fas fa-calendar-day fa-2x"></i>

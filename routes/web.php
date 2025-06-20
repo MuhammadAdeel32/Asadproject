@@ -7,7 +7,7 @@ use App\Livewire\Login;
 
 Route::get('/',Login::class)->name('login');
 
-Route::middleware(['auth'])->group(function () {
+ Route::middleware(['auth'])->group(function () {
 Route::get('/dashboard',Dashboard::class)->name('dashboard');
 // Products Routes
 Route::prefix('products')->name('products.')->group(function () {
@@ -30,6 +30,8 @@ Route::prefix('customers')->name('customers.')->group(function () {
 Route::prefix('sales')->name('sales.')->group(function () {
     Route::get('new', \App\Livewire\Sales\NewSale::class)->name('new');
     Route::get('history', \App\Livewire\Sales\History::class)->name('history');
+     Route::get('saledetail/{id}', \App\Livewire\Sales\Saledetail::class)->name('detail');
+
 });
 
 // Users Routes
@@ -43,7 +45,7 @@ Route::get('/analytics', \App\Livewire\Analytics::class)->name('analytics');
 
 // Settings
 Route::get('/setting', \App\Livewire\Setting::class)->name('setting');
-});
+ });
 
 Route::get('/logout',function(){
     Auth::logout();

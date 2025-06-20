@@ -14,7 +14,7 @@
         <div class="card-body">
             <div class="row">
 
-                <div class="col-md-4 mb-2">
+                <div class="col-sm-3 mb-2">
                     <label><i class="fa fa-user"></i> Customer</label>
                     <select wire:model.defer="customer_id" class="form-control">
                         <option value="">-- Select Customer --</option>
@@ -25,9 +25,9 @@
                     @error('customer_id') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
 
-                <div class="col-md-4 mb-2">
+                <div class="col-sm-3 mb-2">
                     <label><i class="fa fa-box"></i> Product</label>
-                    <select wire:model.defer="product_id" class="form-control">
+                    <select wire:model="product_id" class="form-control">
                         <option value="">-- Select Product --</option>
                         @foreach ($products as $product)
                             <option value="{{ $product->id }}">{{ ucfirst($product->title) }} (Stock: {{ $product->quantity }})</option>
@@ -36,14 +36,23 @@
                     @error('product_id') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
 
-                <div class="col-md-3 mb-2">
+                <div class="col-sm-3 mb-2">
                     <label><i class="fa fa-sort-numeric-up"></i> Quantity</label>
-                    <input type="number" wire:model.defer="quantity" class="form-control" min="1">
+                    <input type="number" wire:model.live="quantity" class="form-control" min="1">
                     @error('quantity') <div class="text-danger small">{{ $message }}</div> @enderror
                 </div>
 
-                <div class="col-md-1 d-flex align-items-end mb-2">
-                    <button wire:click="addSale" class="btn btn-primary btn-sm w-100">
+                <div class="col-sm-2  mb-2">
+                        <label for="amount" class="form-label"> <i class="fa fa-money-bill-alt"></i>Amount:</label>
+                        <div class="input-group">
+                            <span class="input-group-text"></span>
+                            <input type="number" class="form-control" id="amount" wire:model="amount" readonly>
+                        </div>
+                        @error('amount') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+
+                <div class="col-md-1 d-flex  align-items-end mb-3">
+                    <button wire:click="addSale" class="btn btn-primary btn-sm w-110">
                         <i class="fa fa-plus-circle"></i> Add
                     </button>
                 </div>
