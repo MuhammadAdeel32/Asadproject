@@ -17,6 +17,8 @@ Route::prefix('products')->name('products.')->group(function () {
     Route::get('new', \App\Livewire\Products\NewProduct::class)->name('new');
     Route::get('edit-product/{id}', \App\Livewire\Products\Editproduct::class)->name('editproduct');
     Route::get('stock-management',\App\Livewire\Products\StockManagement::class)->name('stock-management');
+    Route::get('stock.detail/{id}',\App\Livewire\Products\StockDetail::class)->name('stock.detail');
+
 });
 
 // Customers Routes
