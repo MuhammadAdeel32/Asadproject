@@ -1,23 +1,23 @@
 <div class="container mt-3 mb-3">
     <div class="card shadow">
         <div class="card-header bg-info text-white fw-bold">
-            <i class="fa fa-chart-line"></i> Sales Analytics
+            <i class="fa fa-chart-line"></i> {{ __('analytics.title') }}
         </div>
         <div class="card-body">
 
             {{-- Date Filters --}}
             <div class="row g-3 mb-3">
                 <div class="col-md-4">
-                    <label>Start Date</label>
+                    <label>{{ __('analytics.start_date') }}</label>
                     <input type="date" class="form-control" wire:model="startDate">
                 </div>
                 <div class="col-md-4">
-                    <label>End Date</label>
+                    <label>{{ __('analytics.end_date') }}</label>
                     <input type="date" class="form-control" wire:model="endDate">
                 </div>
                 <div class="col-md-4 d-flex align-items-end">
                     <button class="btn btn-primary w-100" wire:click="search">
-                        <i class="fa fa-search"></i> Search
+                        <i class="fa fa-search"></i> {{ __('analytics.search') }}
                     </button>
                 </div>
             </div>
@@ -29,18 +29,18 @@
                         <thead class="table-dark">
                             <tr>
                                 <th>#</th>
-                                <th>Customer</th>
-                                <th>Total</th>
-                                <th>Discount</th>
-                                <th>Final</th>
-                                <th>Date</th>
+                                <th>{{ __('analytics.customer') }}</th>
+                                <th>{{ __('analytics.total') }}</th>
+                                <th>{{ __('analytics.discount') }}</th>
+                                <th>{{ __('analytics.final') }}</th>
+                                <th>{{ __('analytics.date') }}</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($sales as $index => $sale)
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
-                                    <td>{{ $sale->customer->name ?? 'N/A' }}</td>
+                                    <td>{{ $sale->customer->name ?? __('analytics.na') }}</td>
                                     <td>{{ $sale->total }}</td>
                                     <td>{{ $sale->discount }}</td>
                                     <td>{{ $sale->final }}</td>
@@ -51,10 +51,9 @@
                     </table>
                 </div>
             @elseif($startDate && $endDate)
-                <p class="text-danger mt-3">No sales found for the selected date range.</p>
+                <p class="text-danger mt-3">{{ __('analytics.no_sales_found') }}</p>
             @endif
 
         </div>
     </div>
 </div>
-

@@ -53,4 +53,15 @@ Route::get('/logout',function(){
     Auth::logout();
     return redirect(route('login'));
 })->name('logout');
- 
+
+
+// Your existing routes...
+
+Route::get('/language/{lang}', function ($lang) {
+    if (!in_array($lang, ['en', 'tr'])) {
+        abort(400, 'Invalid language');
+    }
+
+    session()->put('locale', $lang);
+    return redirect()->back();
+})->name('language.switch');
