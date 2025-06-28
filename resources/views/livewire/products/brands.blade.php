@@ -34,7 +34,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>{{ __('products.title') }}</th>
-                                <th>{{ __('common.action') }}</th>
+                                <th>{{ __('products.action') }}</th>
                             </tr>
                         </thead>
                         <tbody>

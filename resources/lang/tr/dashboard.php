@@ -16,7 +16,7 @@ return [
     'create_customer' => 'Müşteri Oluştur',
     'users' => 'Kullanıcılar',
     'create_user' => 'Kullanıcı Oluştur',
-    'all_users' => 'Tüm Kullanıcılar',
+    'all_users' => ' Kullanıcılar',
     'settings' => 'Ayarlar',
     'logout' => 'Çıkış Yap',
     'information_summary' => 'Bilgi Özeti',

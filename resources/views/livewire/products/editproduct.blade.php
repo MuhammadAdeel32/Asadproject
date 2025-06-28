@@ -9,8 +9,7 @@
                             <i class="fa fa-plus-circle"></i> {{ __('products.edit_product') }}
                         </div>
                     </div>
-
-                    <form wire:submit.prevent="updateProduct">
+          <form wire:submit.prevent="updateProduct" enctype="multipart/form-data">
                         <div class="row">
                             <!-- Brand -->
                             <div class="col-md-6 mb-2 mt-3">
@@ -83,7 +82,7 @@
                             <label for="thumbnail" class="form-label">
                                 <i class="fas fa-image"></i> {{ __('products.thumbnail_optional') }}
                             </label>
-                            <input wire:model="thumbnail" type="file" id="thumbnail" class="form-control">
+                            <input wire:model.defer="thumbnail" type="file" id="thumbnail" class="form-control">
                             @error('thumbnail') <div class="text-danger small">{{ $message }}</div> @enderror
                         </div>
 

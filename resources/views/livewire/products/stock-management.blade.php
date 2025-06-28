@@ -34,10 +34,10 @@
                                                 <i class="fa fa-eye"></i> {{ __('products.view') }}
                                             </a>
                                             <a href="{{ route('products.editproduct', $product->id) }}" class="btn btn-success btn-sm">
-                                                <i class="fa-solid fa-pen-to-square"></i> {{ __('products.edit') }}
+                                                <i class="fa-solid fa-pen-to-square"></i> 
                                             </a>
                                             <button wire:click="deleteproduct({{ $product->id }})" wire:confirm="Are you want to delete it" class="btn btn-danger btn-sm">
-                                                <i class="fa-solid fa-trash"></i> {{ __('products.delete') }}
+                                                <i class="fa-solid fa-trash"></i> 
                                             </button>
                                         </td>
                                     </tr>

@@ -15,7 +15,7 @@
             @endif
 
             <div>
-                <label for="current_password" class="form-label">{{ __('setting.current_password') }}</label>
+                <label for="current_password" class="form-label"></label>
                 <input 
                     type="password"
                     id="current_password"
@@ -29,7 +29,7 @@
             </div>
 
             <div>
-                <label for="new_password" class="form-label">{{ __('setting.new_password') }}</label>
+                <label for="new_password" class="form-label"></label>
                 <input
                     type="password"
                     id="new_password"
@@ -43,7 +43,7 @@
             </div>
 
             <div>
-                <label for="confirm_new_password" class="form-label">{{ __('setting.confirm_new_password') }}</label>
+                <label for="confirm_new_password" class="form-label"></label>
                 <input
                     type="password"
                     id="confirm_new_password"
