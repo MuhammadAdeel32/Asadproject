@@ -23,9 +23,11 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>
-                                        <button class="btn btn-danger" wire:click="deleteuser({{ $user->id }})" wire:confirm="{{ __('users.delete_confirm') }}">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
+                                        @if ($user->id !== 1)
+                                      <button class="btn btn-danger" wire:click="deleteuser({{ $user->id }})" wire:confirm="{{ __('users.delete_confirm') }}">
+                                       <i class="fa-solid fa-trash"></i>
+                                       </button>
+                                          @endif
                                     </td>
                                 </tr>
                             @empty
