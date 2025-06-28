@@ -31,7 +31,7 @@
 
             {{-- Thumbnail --}}
             <div class="mb-3">
-                <h5><strong>{{ __('products.thumbnail') }}:</strong></h5>
+                <h5><strong>{{ __('products.thumbnail') }}: {{ $product->thumbnail }} </strong></h5>
                 @if ($product->thumbnail)
                     <img src="https://aknurtextile.com/storage/app/public/thumbnail/"{{ $product->thumbnail }}" class="img-fluid rounded" style="max-width: 400px;" alt="Product Thumbnail">
                 @else
