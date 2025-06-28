@@ -23,7 +23,7 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>
-                                        @if ($user->id !== 1)
+                                        @if ($user->id== 1)
                                         N/A
                                         @else
                                       <button class="btn btn-danger" wire:click="deleteuser({{ $user->id }})" wire:confirm="{{ __('users.delete_confirm') }}">
