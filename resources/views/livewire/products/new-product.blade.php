@@ -85,6 +85,9 @@
                                 <i class="fas fa-image"></i> {{ __('products.thumbnail_optional') }}
                             </label>
                             <input wire:model="thumbnail" type="file" id="thumbnail" class="form-control">
+                            @error('thumbnail')
+                            <font color="red">{{ $message }}</font>
+                            @enderror
                         </div>
 
                         <!-- Submit -->
