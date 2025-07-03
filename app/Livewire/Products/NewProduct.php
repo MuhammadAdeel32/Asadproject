@@ -33,17 +33,11 @@ class NewProduct extends Component
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        dd("workable");
-
         $imageName = 'product_' . time() . '.jpg';
         $finalImagePath = null;
 
     if ($this->thumbnail) {
         $finalImagePath = $this->thumbnail->storeAs('thumbnail', $imageName, 'public');
-    }
-    else {
-        $this->addError('photo', 'Image could not be saved.');
-        return;
     }
 
         // Now use Object based Query
