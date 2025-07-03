@@ -33,8 +33,7 @@ class NewProduct extends Component
             'thumbnail' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        
-
+        dd("workable");
 
         $imageName = 'product_' . time() . '.jpg';
         $finalImagePath = null;
