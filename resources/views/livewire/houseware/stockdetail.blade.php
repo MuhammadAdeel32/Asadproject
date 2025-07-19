@@ -3,9 +3,7 @@
         <div class="card-header text-white fw-bold" style="background-color:#009933;">
             <i class="fa fa-box"></i> {{ __('products.product_detail') }}
         </div>
-        <div class="card-body">
-
-            {{-- Horizontal Product Info Table --}}
+                    {{-- Horizontal Product Info Table --}}
             <div class="table-responsive mb-4">
                 <table class="table table-bordered table-striped w-100 text-center align-middle">
                     <thead class="table-dark">
@@ -28,12 +26,12 @@
                     </tbody>
                 </table>
             </div>
-
+        <div class="card-body">
             {{-- Thumbnail --}}
             <div class="mb-3">
-                <h5><strong>{{ __('products.thumbnail') }}:</strong></h5>
+                <h5><strong>{{ __('products.thumbnail') }}: </strong></h5>
                 @if ($product->thumbnail)
-                    <img src="{{ asset('storage/' . $product->thumbnail) }}" class="img-fluid rounded" style="max-width: 400px;" alt="Product Thumbnail">
+                    <img src="https://aknurtextile.com/storage/app/public/{{ $product->thumbnail }}" class="img-fluid rounded" style="max-width: 400px;" alt="Product Thumbnail">
                 @else
                     <p>{{ __('products.not_available') }}</p>
                 @endif

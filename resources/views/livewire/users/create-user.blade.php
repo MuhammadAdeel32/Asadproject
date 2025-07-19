@@ -16,18 +16,18 @@
             @endif
 
             <!-- Name -->
-            <div>
+            <div class="mb-1">
                 <input 
                     type="text"
                     wire:model.defer="name"
                     class="form-control"
                     placeholder="{{ __('users.enter_name') }}"
                 />
-                @error('name') <p class="text-danger text-xs italic">{{ $message }}</p> @enderror
+                @error('name') <p class="text-danger text-xs italic mt-2">{{ $message }}</p> @enderror
             </div>
 
             <!-- Email -->
-            <div>
+            <div class="mb-1">
                 <input 
                     type="text"
                     wire:model.defer="email"
@@ -38,7 +38,7 @@
             </div>
 
             <!-- Password -->
-            <div>
+            <div class="mb-1">
                 <input
                     type="password"
                     wire:model.defer="password"
@@ -49,7 +49,7 @@
             </div>
 
             <!-- Confirm Password -->
-            <div>
+            <div class="mb-1">
                 <input
                     type="password"
                     wire:model.defer="password_confirmation"

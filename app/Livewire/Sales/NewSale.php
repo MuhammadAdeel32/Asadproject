@@ -5,7 +5,7 @@ namespace App\Livewire\Sales;
 use App\Models\shopproduct;
 use App\Models\Customer;
 use App\Models\Sale;
-use App\Models\SalesProduct;
+use App\Models\salesproduct;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 
@@ -117,7 +117,7 @@ class NewSale extends Component
             ]);
 
             foreach ($this->cart as $item) {
-                SalesProduct::create([
+                salesproduct::create([
                     'sale_id' => $sale->id,
                     'product_id' => $item['product_id'],
                     'quantity' => $item['quantity'],

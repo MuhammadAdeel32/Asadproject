@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="card-body rounded-1">
-                    <form wire:submit.prevent="Add">
+                    <form wire:submit.prevent="Add" enctype="multipart/form-data">
                         <div class="row">
                             <!-- Brand -->
                             <div class="col-md-6 mb-2 mt-3">
@@ -85,6 +85,9 @@
                                 <i class="fas fa-image"></i> {{ __('products.thumbnail_optional') }}
                             </label>
                             <input wire:model="thumbnail" type="file" id="thumbnail" class="form-control">
+                            @error('thumbnail')
+                            <font color="red">{{ $message }}</font>
+                            @enderror
                         </div>
 
                         <!-- Submit -->
