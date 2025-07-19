@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Livewire\Products;
-
-use Livewire\Component;
+namespace App\Livewire\Houseware;
 use App\Models\Product;
-class StockDetail extends Component
+use Livewire\Component;
+
+class Stockdetail extends Component
 {
-    public $product;
+
+      public $product;
 
     public function mount($id)
     {
@@ -15,7 +16,6 @@ class StockDetail extends Component
 
     public function render()
     {
-        
-        return view('livewire.products.stock-detail');
+        return view('livewire.houseware.stockdetail');
     }
 }

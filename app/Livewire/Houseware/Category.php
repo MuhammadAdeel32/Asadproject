@@ -1,15 +1,13 @@
 <?php
 
-namespace App\Livewire\Products;
-
+namespace App\Livewire\Houseware;
+use  App\Models\Category as CategoryModel;
 use Livewire\Component;
-use App\Models\Category;
 
-class Catagories extends Component
+class Category extends Component
 {
 
-
-     public $title;
+      public $title;
 
     public function resetInputFields()
     {
@@ -22,19 +20,19 @@ class Catagories extends Component
             'title' => 'required|string',
         ]);
 
-        Category::create([
+        CategoryModel::create([
             'title' => $this->title,
         ]);
 
         $this->resetInputFields();
 
-        return redirect()->route('products.category');
+        return redirect()->route('warehouse.category');
     }
  
       
      public function deletecategory($id)
     {
-        $category=Category::find($id);
+        $category=CategoryModel::find($id);
 
         if($category){
             if($category->products->count() == 0){
@@ -49,7 +47,8 @@ class Catagories extends Component
 
     public function render()
     {
-        $categories=Category::all();
-        return view('livewire.products.catagories',compact('categories'));
+        $categories=CategoryModel::all();
+        return view('livewire.houseware.category',compact('categories'));
     }
+
 }

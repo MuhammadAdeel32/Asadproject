@@ -11,13 +11,22 @@ Route::get('/',Login::class)->name('login');
 Route::get('/dashboard',Dashboard::class)->name('dashboard');
 // Products Routes
 Route::prefix('products')->name('products.')->group(function () {
+     Route::get('shop-products', \App\Livewire\Products\shopproduct::class)->name('shop.product');
+    Route::get('stock-management', \App\Livewire\Products\stockmanagement::class)->name('stock.management');
 
-    Route::get('new-brand', \App\Livewire\Products\Brands::class)->name('brand');
-    Route::get('new-category', \App\Livewire\Products\Catagories::class)->name('category');
-    Route::get('new', \App\Livewire\Products\NewProduct::class)->name('new');
-    Route::get('edit-product/{id}', \App\Livewire\Products\Editproduct::class)->name('editproduct');
-    Route::get('stock-management',\App\Livewire\Products\StockManagement::class)->name('stock-management');
-    Route::get('stock.detail/{id}',\App\Livewire\Products\StockDetail::class)->name('stock.detail');
+
+});
+
+
+
+Route::prefix('warehouse')->name('warehouse.')->group(function () {
+
+    Route::get('new-brand', \App\Livewire\Houseware\Brand::class)->name('brand');
+    Route::get('new-category', \App\Livewire\Houseware\Category::class)->name('category');
+    Route::get('new', \App\Livewire\Houseware\AddProduct::class)->name('new');
+    Route::get('edit-product/{id}', \App\Livewire\Houseware\Editproduct::class)->name('editproduct');
+    Route::get('stock-management',\App\Livewire\Houseware\Stockmanagement::class)->name('stock-management');
+    Route::get('stock.detail/{id}',\App\Livewire\Houseware\Stockdetail::class)->name('stock.detail');
 
 });
 

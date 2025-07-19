@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Sales;
 
-use App\Models\Product;
+use App\Models\shopproduct;
 use App\Models\Customer;
 use App\Models\Sale;
 use App\Models\SalesProduct;
@@ -19,13 +19,13 @@ class NewSale extends Component
 
     public function mount()
     {
-        $this->products = Product::all();
+        $this->products = shopproduct::all();
         $this->customers = Customer::all();
     }
 
     public function updatedProductId($value)
     {
-        $product = Product::find($value);
+        $product = shopproduct::with('product')->find($value);
 
         if ($product) {
             $this->price = $product->price;
@@ -42,7 +42,7 @@ class NewSale extends Component
     public function updatedQuantity($value)
     {
         if ($this->product_id && $value) {
-            $product = Product::find($this->product_id);
+            $product = shopproduct::find($this->product_id);
             
             if ($product) {
                 // Live stock check
@@ -67,7 +67,7 @@ class NewSale extends Component
             'amount' => 'numeric|min:0.01',            
         ]);
 
-        $product = Product::find($this->product_id);
+        $product = shopproduct::find($this->product_id);
 
         // Final stock check
         if ($product->quantity < $this->quantity) {
@@ -126,7 +126,7 @@ class NewSale extends Component
                 ]);
 
                 // Deduct stock
-                $product = Product::find($item['product_id']);
+                $product = shopproduct::find($item['product_id']);
                 $product->quantity -= $item['quantity'];
                 $product->save();
             }
@@ -143,6 +143,7 @@ class NewSale extends Component
 
     public function render()
     {
+        
         return view('livewire.sales.new-sale');
     }
 }

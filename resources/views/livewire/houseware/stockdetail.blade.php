@@ -45,7 +45,7 @@
                 <p>{{ $product->description ?? __('products.not_available') }}</p>
             </div>
 
-            <a href="{{ route('products.stock-management') }}" class="btn btn-success">
+            <a href="{{ route('warehouse.stock-management') }}" class="btn btn-success">
                 {{ __('products.back_to_list') }}
             </a>
 

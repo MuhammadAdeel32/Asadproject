@@ -3,29 +3,23 @@
 namespace App\Livewire\Products;
 
 use Livewire\Component;
-use App\Models\Product;
-use App\Models\Category;
-use App\Models\Brand;
+use App\Models\shopproduct;
 
-class StockManagement extends Component
+class Stockmanagement extends Component
 {
 
 
-    public function deleteproduct($id)
+     public function deleteproduct($id)
     {
-         $product = Product::find($id);
+         $product = shopproduct::find($id);
         if ($product) {
             $product->delete();
         }
     }
-
+     
     public function render()
-
     {
-        $categories=Category::all();
-        $brands=Brand::all();
-        $products=Product::all();
-
-        return view('livewire.products.stock-management',compact('products','brands','categories'));
+        $products=shopproduct::with(['product'])->get();
+        return view('livewire.products.stockmanagement',compact('products'));
     }
 }

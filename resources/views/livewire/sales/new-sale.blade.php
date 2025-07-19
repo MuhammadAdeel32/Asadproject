@@ -29,7 +29,7 @@
                     <select wire:model="product_id" class="form-control">
                         <option value="">{{ __('sales.select_product') }}</option>
                         @foreach ($products as $product)
-                            <option value="{{ $product->id }}">{{ ucfirst($product->title) }} ({{ __('sales.stock') }}: {{ $product->quantity }})</option>
+                            <option value="{{ $product->id }}">{{ ucfirst($product->product->title) }} ({{ __('sales.stock') }}: {{ $product->quantity }})</option>
                         @endforeach
                     </select>
                     @error('product_id') <div class="text-danger small">{{ $message }}</div> @enderror
@@ -78,7 +78,7 @@
                     <tbody>
                         @foreach($cart as $index => $item)
                             <tr>
-                                <td>{{ $item['product_name'] }}</td>
+                                <td>{{ $item->product->title}}</td>
                                 <td>{{ $item['quantity'] }}</td>
                                 <td>{{ number_format($item['price'], 2) }}</td>
                                 <td>{{ number_format($item['subtotal'], 2) }}</td>

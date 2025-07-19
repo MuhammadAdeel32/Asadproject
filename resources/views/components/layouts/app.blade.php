@@ -57,10 +57,27 @@
           </div>
         </a>
         <ul class="br-menu-sub nav flex-column">
-          <li class="nav-item"><a href="{{ route('products.brand')}}" class="nav-link">{{ __('dashboard.brand') }}</a></li>
-          <li class="nav-item"><a href="{{ route('products.category')}}" class="nav-link">{{ __('dashboard.category') }}</a></li>
-          <li class="nav-item"><a href="{{ route('products.new')}}" class="nav-link">{{ __('dashboard.new_product') }}</a></li>
-          <li class="nav-item"><a href="{{ route('products.stock-management')}}" class="nav-link">{{ __('dashboard.stock_management') }}</a></li>
+           <li class="nav-item"><a href="{{ route('products.shop.product')}}" class="nav-link">{{ __('dashboard.shop_products') }}</a></li>
+            <li class="nav-item"><a href="{{ route('products.stock.management')}}" class="nav-link">{{ __('dashboard.stock_management') }}</a></li>
+
+
+        </ul>
+
+         <a href="#" class="br-menu-link">
+          <div class="br-menu-item">
+            <i class="fas fa-box-open"></i>
+            <span class="menu-item-label">{{ __('dashboard.ware_house') }}</span>
+            <i class="menu-item-arrow fa fa-angle-down"></i>
+          </div>
+        </a>
+        <ul class="br-menu-sub nav flex-column">
+          <li class="nav-item"><a href="{{ route('warehouse.brand')}}" class="nav-link">{{ __('dashboard.brand') }}</a></li>
+          <li class="nav-item"><a href="{{ route('warehouse.category')}}" class="nav-link">{{ __('dashboard.category') }}</a></li>
+          <li class="nav-item"><a href="{{ route('warehouse.new')}}" class="nav-link">{{ __('dashboard.new_product') }}</a></li>
+          <li class="nav-item"><a href="{{ route('warehouse.stock-management')}}" class="nav-link">{{ __('dashboard.stock_management') }}</a></li>
+
+
+          
         </ul>
 
         <a href="#" class="br-menu-link">

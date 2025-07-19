@@ -1,19 +1,21 @@
 <?php
 
-namespace App\Livewire\Products;
-use Livewire\WithFileUploads;
-use App\Models\Product;
-use App\Models\Category;
-use App\Models\Brand;
+namespace App\Livewire\Houseware;
+
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use App\Models\Brand;
+use App\Models\Category;
+use App\Models\Product;
 
 class Editproduct extends Component
 {
 
-        use WithFileUploads;
+
+     use WithFileUploads;
 
                  public $category_id;
-                 public  $brand_id;
+                 public $brand_id;
                  public $title;
                  public $description;
                  public $quantity;
@@ -21,7 +23,6 @@ class Editproduct extends Component
                  public $thumbnail;
                  public $productId;
                  public $logopath;
-
 
 
     public function mount($id)
@@ -55,7 +56,7 @@ class Editproduct extends Component
         $this->validate();
 
          $imageName = 'product_' . time() . '.jpg';
-        $finalImagePath = null;
+         $finalImagePath = null;
 
     if ($this->thumbnail) {
         $finalImagePath = $this->thumbnail->storeAs('thumbnail', $imageName, 'public');
@@ -77,15 +78,16 @@ class Editproduct extends Component
         $product->save();
         
         session()->flash('success','Record Updated Successfully');
-        return redirect()->route('products.stock-management');
+        return redirect()->route('warehouse.stock-management');
         
     }
-
 
     public function render()
     {
         $brands=Brand::all();
         $categories=Category::all();
-        return view('livewire.products.editproduct',compact('brands','categories'));
+        return view('livewire.houseware.editproduct',compact('brands','categories'));
     }
+
+   
 }

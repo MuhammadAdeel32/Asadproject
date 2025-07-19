@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Livewire\Products;
+namespace App\Livewire\Houseware;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use App\Models\Category;
 use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
 
-class NewProduct extends Component
+class AddProduct extends Component
 {
-    use WithFileUploads;
+
+use WithFileUploads;
 
     public $category_id;
     public $brand_id;
@@ -36,12 +37,16 @@ class NewProduct extends Component
         
 
 
-        $finalImagePath = null;
+        $imageName = 'product_' . time() . '.jpg';
+         $finalImagePath = null;
 
-        if ($this->thumbnail) {
-            $imageName = 'product_' . time() . '.' . $this->thumbnail->getClientOriginalExtension();
-            $finalImagePath = $this->thumbnail->storeAs('thumbnail', $imageName, 'public');
-        }
+    if ($this->thumbnail) {
+        $finalImagePath = $this->thumbnail->storeAs('thumbnail', $imageName, 'public');
+    }
+    else {
+        $this->addError('photo', 'Image could not be saved.');
+    
+    }
 
         // Now use Object based Query
         $product = new Product();
@@ -67,6 +72,8 @@ class NewProduct extends Component
         $categories = Category::all();
         $brands = Brand::all();
 
-        return view('livewire.products.new-product', compact('categories', 'brands',));
+        return view('livewire.houseware.add-product', compact('categories', 'brands',));
     }
+
+   
 }

@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Livewire\Products;
+namespace App\Livewire\Houseware;
 
+use App\Models\Brand as BrandModel;
 use Livewire\Component;
-use App\Models\Brand;
-
-class Brands extends Component
+class Brand extends Component
 {
+
+
+
     public $title;
 
     public function resetInputFields()
@@ -20,18 +22,19 @@ class Brands extends Component
             'title' => 'required|string',
         ]);
 
-        Brand::create([
+        BrandModel::create([
             'title' => $this->title,
         ]);
 
         $this->resetInputFields();
 
-        return redirect()->route('products.brand');
+        return redirect()->route('warehouse.brand');
     }
+
 
     public function deletebrand($id)
     {
-        $brand=Brand::find($id);
+        $brand=BrandModel::find($id);
 
         if($brand){
             if($brand->products->count() == 0){
@@ -43,9 +46,11 @@ class Brands extends Component
         }
     }
 
+
     public function render()
     {
-        $brands=Brand::all();
-        return view('livewire.products.brands',compact('brands'));
+        $brands=BrandModel::all();
+        return view('livewire.houseware.brand',compact('brands'));
     }
+    
 }

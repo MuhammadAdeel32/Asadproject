@@ -3,6 +3,7 @@
 return [
     'add_brand' => 'Add New Brand',
     'title' => 'Title',
+    'select_product' => '-- Select_product --',
     'add_button' => 'Add Brand',
     'brands_list' => 'Brands List',
     'not_found' => 'Brands not found.',
@@ -12,6 +13,7 @@ return [
     'add_category_button' => 'Add Category',
     'categories_list' => 'Category List',
     'categories_not_found' => 'Categories not found.',
+    'product'=>'Product',
 
     'add_new_product' => 'Add New Product',
     'brand' => 'Brand',
